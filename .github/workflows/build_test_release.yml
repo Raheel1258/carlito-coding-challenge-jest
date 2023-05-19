@@ -1,0 +1,30 @@
+name: Carlito Monorepo CI/CD
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+  actions: 'read' # This is required for the nx-set-shas action
+
+on:
+  push:
+    branches: [main, staging]
+
+jobs:
+  test-build-release:
+    name: Lint, test, build, deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          yarn install --prefer-offline --frozen-lockfile
+          # Run post install hooks
+          # yarn allow-scripts
+
+      - name: Test affected code
+        run: |
+          yarn nx affected --target=test
