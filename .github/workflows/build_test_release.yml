@@ -27,4 +27,4 @@ jobs:
 
       - name: Test affected code
         run: |
-          yarn nx affected --target=test
+          yarn nx run-many --target=test --all
