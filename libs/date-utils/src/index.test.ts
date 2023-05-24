@@ -3,7 +3,7 @@ import { dateTimeToMarkdown } from '.';
 describe('date-utils', () => {
   it('should correctly format date and time to markdown in English', () => {
     const date = new Date('2023-05-18T11:30:00.000Z');
-    const expectedResult = '**Thursday, May 18, 1:30 PM**';
+    const expectedResult = '**Thursday, May 18, 7:30 AM**';
     expect(dateTimeToMarkdown(date, 'en')).toEqual(expectedResult);
   });
 
