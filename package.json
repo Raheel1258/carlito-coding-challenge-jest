@@ -39,6 +39,8 @@
   },
   "license": "COMMERCIAL",
   "dependencies": {
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
     "tslib": "^2.3.0"
   }
 }
